@@ -36,16 +36,18 @@ class VercelPathNormalizer:
     async def __call__(self, scope, receive, send):
         if scope["type"] in ("http", "websocket"):
             headers = dict(scope.get("headers", []))
+            method = scope.get("method", "UNKNOWN")
+            incoming_path = scope.get("path", "")
 
             # Vercel and reverse proxies pass the original client path in standard headers
-            matched = (
-                headers.get(b"x-forwarded-uri", b"")
-                or headers.get(b"x-original-url", b"")
-                or headers.get(b"x-rewrite-url", b"")
-                or headers.get(b"x-matched-path", b"")
-            ).decode("utf-8", errors="ignore")
+            h_fwd = headers.get(b"x-forwarded-uri", b"").decode("utf-8", errors="ignore")
+            h_orig = headers.get(b"x-original-url", b"").decode("utf-8", errors="ignore")
+            h_rewrite = headers.get(b"x-rewrite-url", b"").decode("utf-8", errors="ignore")
+            h_matched = headers.get(b"x-matched-path", b"").decode("utf-8", errors="ignore")
 
-            target_path = scope.get("path", "")
+            matched = h_fwd or h_orig or h_rewrite or h_matched
+
+            target_path = incoming_path
 
             # If an authoritative forwarded path was provided by the proxy, use it
             if matched:
@@ -72,6 +74,15 @@ class VercelPathNormalizer:
             # Guarantee leading slash
             if not target_path.startswith("/"):
                 target_path = "/" + target_path
+
+            # Temporary diagnostic logging (no sensitive data logged)
+            print(
+                f"[VercelPathNormalizer] method={method} incoming_path='{incoming_path}' "
+                f"x-forwarded-uri='{h_fwd}' x-original-url='{h_orig}' "
+                f"x-rewrite-url='{h_rewrite}' x-matched-path='{h_matched}' "
+                f"target_path='{target_path}'",
+                flush=True,
+            )
 
             scope["path"] = target_path
             scope["raw_path"] = target_path.encode("utf-8")
