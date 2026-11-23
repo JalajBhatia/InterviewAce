@@ -39,10 +39,10 @@ class VercelPathNormalizer:
 
             # Vercel and reverse proxies pass the original client path in standard headers
             matched = (
-                headers.get(b"x-matched-path", b"")
-                or headers.get(b"x-forwarded-uri", b"")
+                headers.get(b"x-forwarded-uri", b"")
                 or headers.get(b"x-original-url", b"")
                 or headers.get(b"x-rewrite-url", b"")
+                or headers.get(b"x-matched-path", b"")
             ).decode("utf-8", errors="ignore")
 
             target_path = scope.get("path", "")
