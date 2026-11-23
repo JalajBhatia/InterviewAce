@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewAce — Premium AI Mock Interview &amp; Placement Platform</title>
+    <!-- Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2.1">
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Collapsible Sidebar Navigation -->
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-top">
+                <div class="brand">
+                    <div class="brand-logo">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="brand-meta">
+                        <span class="brand-title">InterviewAce</span>
+                        <span class="brand-badge">PRO AI</span>
+                    </div>
+                </div>
+                <button class="sidebar-toggle" id="sidebar-toggle" title="Toggle Sidebar" onclick="toggleSidebar()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="sidebar-nav">
+                <div class="nav-group-title">MAIN</div>
+                <button class="nav-item active" id="nav-dashboard-btn" onclick="navigateTo('dashboard')">
+                    <span class="nav-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </span>
+                    <span class="nav-text">Dashboard</span>
+                </button>
+
+                <button class="nav-item" id="nav-setup-btn" onclick="navigateTo('setup')">
+                    <span class="nav-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M2 12h20"></path>
+                        </svg>
+                    </span>
+                    <span class="nav-text">Start Interview</span>
+                </button>
+
+                <button class="nav-item" id="nav-history-btn" onclick="navigateTo('history')">
+                    <span class="nav-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </span>
+                    <span class="nav-text">Practice History</span>
+                </button>
+
+                <button class="nav-item" id="nav-analytics-btn" onclick="navigateTo('analytics')">
+                    <span class="nav-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </span>
+                    <span class="nav-text">Performance Analytics</span>
+                </button>
+
+                <div class="nav-group-title" style="margin-top: 1.5rem;">FRAMEWORK</div>
+                <button class="nav-item" id="nav-rubric-btn" onclick="navigateTo('rubric-info')">
+                    <span class="nav-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </span>
+                    <span class="nav-text">4-Criteria Rubric</span>
+                </button>
+            </nav>
+
+            <!-- Bottom User Profile Card -->
+            <div class="sidebar-footer">
+                <div class="user-chip">
+                    <div class="user-avatar">
+                        <span>🎓</span>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Placement Candidate</span>
+                        <span class="user-status">University Edition</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="app-body">
+            <!-- Top App Header -->
+            <header class="app-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                    <div class="header-breadcrumbs">
+                        <span class="bc-root">InterviewAce</span>
+                        <span class="bc-sep">/</span>
+                        <span id="current-screen-title" class="bc-current">Dashboard</span>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="header-tags">
+                        <span class="tag">Problem C10</span>
+                        <span class="tag tag-accent">Fixed 4-Criteria Rubric</span>
+                        <span id="prompt-tag" class="tag tag-prompt">Prompt V4 (Active)</span>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="navigateTo('setup')">
+                        <span>+ New Interview</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <!-- ============================================================ -->
+                <!-- 0. DASHBOARD SCREEN -->
+                <!-- ============================================================ -->
+                <section id="dashboard-screen" class="screen">
+                    <div class="dashboard-hero">
+                        <div class="hero-left">
+                            <div class="hero-badge">
+                                <span class="badge-dot"></span>
+                                University Placement &amp; Internship Readiness
+                            </div>
+                            <h2>Elevate Your Technical &amp; Behavioral Interview Skills</h2>
+                            <p class="hero-subtext">
+                                Practice real technical and placement interviews with role-specific questions, adaptive follow-ups, instantaneous 4-criteria rubric grading, and actionable feedback.
+                            </p>
+                            <div class="hero-cta-group">
+                                <button class="btn btn-primary btn-lg" onclick="navigateTo('setup')">
+                                    <span>Start Mock Interview 🚀</span>
+                                </button>
+                                <button class="btn btn-secondary btn-lg" onclick="navigateTo('history')">
+                                    <span>View Practice History 📜</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="hero-right">
+                            <div class="rubric-summary-card">
+                                <div class="rsc-header">
+                                    <span class="rsc-title">Standardized Evaluation Rubric</span>
+                                    <span class="rsc-score">20 Marks / Q</span>
+                                </div>
+                                <div class="rsc-grid">
+                                    <div class="rsc-item">
+                                        <div class="rsc-icon">📐</div>
+                                        <div class="rsc-desc"><strong>Correctness</strong><span>0–5 marks</span></div>
+                                    </div>
+                                    <div class="rsc-item">
+                                        <div class="rsc-icon">🎯</div>
+                                        <div class="rsc-desc"><strong>Relevance</strong><span>0–5 marks</span></div>
+                                    </div>
+                                    <div class="rsc-item">
+                                        <div class="rsc-icon">💡</div>
+                                        <div class="rsc-desc"><strong>Clarity</strong><span>0–5 marks</span></div>
+                                    </div>
+                                    <div class="rsc-item">
+                                        <div class="rsc-icon">🔍</div>
+                                        <div class="rsc-desc"><strong>Completeness</strong><span>0–5 marks</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Key Metrics Grid -->
+                    <div class="dash-metrics-grid">
+                        <div class="dash-card">
+                            <div class="dc-top">
+                                <span class="dc-label">Interviews Completed</span>
+                                <div class="dc-icon">🎓</div>
+                            </div>
+                            <div class="dc-val" id="dash-total-sessions">0</div>
+                            <div class="dc-sub" id="dash-sessions-sub">No completed sessions yet</div>
+                        </div>
+
+                        <div class="dash-card">
+                            <div class="dc-top">
+                                <span class="dc-label">Average Placement Score</span>
+                                <div class="dc-icon">⭐</div>
+                            </div>
+                            <div class="dc-val" id="dash-avg-score">--</div>
+                            <div class="dc-sub" id="dash-avg-sub">Out of 100%</div>
+                        </div>
+
+                        <div class="dash-card">
+                            <div class="dc-top">
+                                <span class="dc-label">Readiness Status</span>
+                                <div class="dc-icon">🏆</div>
+                            </div>
+                            <div class="dc-val" id="dash-readiness-val">Needs Practice</div>
+                            <div class="dc-sub" id="dash-readiness-sub">Complete interviews to level up</div>
+                        </div>
+
+                        <div class="dash-card">
+                            <div class="dc-top">
+                                <span class="dc-label">Technical Questions Answered</span>
+                                <div class="dc-icon">💬</div>
+                            </div>
+                            <div class="dc-val" id="dash-total-questions">0</div>
+                            <div class="dc-sub" id="dash-questions-sub">20 marks each question</div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Practice Presets -->
+                    <div class="dash-section">
+                        <div class="section-heading">
+                            <div>
+                                <h3>Quick Start Role Tracks</h3>
+                                <p>Select a popular campus placement track to begin immediately</p>
+                            </div>
+                        </div>
+                        <div class="presets-grid">
+                            <div class="preset-card" onclick="startQuickPreset('Software Development Intern', 'Technical', 'Medium')">
+                                <div class="preset-icon">💻</div>
+                                <h4>SDE Intern Track</h4>
+                                <p>Algorithms, data structures, complexity, and coding fundamentals.</p>
+                                <div class="preset-meta">
+                                    <span class="badge badge-primary">Technical</span>
+                                    <span class="badge badge-outline">Medium</span>
+                                </div>
+                            </div>
+
+                            <div class="preset-card" onclick="startQuickPreset('Backend Developer', 'Technical', 'Medium')">
+                                <div class="preset-icon">⚙️</div>
+                                <h4>Backend Engineer</h4>
+                                <p>APIs, relational databases, caching, concurrency, and architecture.</p>
+                                <div class="preset-meta">
+                                    <span class="badge badge-primary">Technical</span>
+                                    <span class="badge badge-outline">Medium</span>
+                                </div>
+                            </div>
+
+                            <div class="preset-card" onclick="startQuickPreset('Frontend Developer', 'Technical', 'Medium')">
+                                <div class="preset-icon">🎨</div>
+                                <h4>Frontend Developer</h4>
+                                <p>JavaScript, browser rendering, UI performance, React &amp; accessibility.</p>
+                                <div class="preset-meta">
+                                    <span class="badge badge-primary">Technical</span>
+                                    <span class="badge badge-outline">Medium</span>
+                                </div>
+                            </div>
+
+                            <div class="preset-card" onclick="startQuickPreset('HR Interview', 'HR', 'Medium')">
+                                <div class="preset-icon">🤝</div>
+                                <h4>HR &amp; Behavioral</h4>
+                                <p>STAR technique, leadership principles, conflict, and teamwork scenarios.</p>
+                                <div class="preset-meta">
+                                    <span class="badge badge-secondary">Behavioral</span>
+                                    <span class="badge badge-outline">STAR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Practice History -->
+                    <div class="dash-section" style="margin-top: 2rem;">
+                        <div class="section-heading">
+                            <div>
+                                <h3>Recent Practice Sessions</h3>
+                                <p>Review evaluations and recommendations from your past interviews</p>
+                            </div>
+                        </div>
+                        <div class="history-table-card">
+                            <div id="dash-recent-history-container">
+                                <div class="empty-state">
+                                    <div class="empty-icon">📝</div>
+                                    <h4>No Practice Sessions Recorded Yet</h4>
+                                    <p>Start your first mock interview session to record your performance history.</p>
+                                    <button class="btn btn-primary btn-sm" onclick="navigateTo('setup')" style="margin-top: 1rem;">
+                                        <span>Start Practice Session</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================ -->
+                <!-- 1. SETUP SCREEN -->
+                <!-- ============================================================ -->
+                <section id="setup-screen" class="screen hidden">
+                    <div class="setup-container">
+                        <div class="setup-header">
+                            <h2>Configure Your Mock Interview</h2>
+                            <p>Customize target role, difficulty, questions count, and resume cross-referencing.</p>
+                        </div>
+
+                        <div class="setup-card">
+                            <!-- Role & Goal Detection Box -->
+                            <div class="form-group goal-group">
+                                <label for="goal-input">
+                                    <span class="label-title">🎯 Target Goal &amp; Practice Aspiration</span>
+                                    <span class="label-hint">Optional — type your dream role or upload a resume below</span>
+                                </label>
+                                <div class="goal-input-row">
+                                    <textarea id="goal-input" rows="2"
+                                        placeholder="e.g. SDE Intern placement at a product company, focusing on data structures, sorting algorithms, and system architecture"></textarea>
+                                    <button class="btn btn-secondary detect-btn" id="detect-btn" onclick="detectRole()">
+                                        <span>✨ Detect Role</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="detection-result" class="detection-box hidden">
+                                <div class="detection-head">
+                                    <span class="detection-badge">Inferred Role:</span>
+                                    <span id="detected-role" class="detected-role-name"></span>
+                                    <span id="detected-confidence" class="confidence"></span>
+                                </div>
+                                <p id="detected-reasoning" class="detection-reason"></p>
+                            </div>
+
+                            <!-- Form Options Grid -->
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="role-select">Target Job Role</label>
+                                    <select id="role-select" onchange="onRoleChange()">
+                                        <optgroup label="Popular Placement Roles">
+                                            <option value="Software Development Intern" selected>Software Development Intern</option>
+                                            <option value="Frontend Developer">Frontend Developer</option>
+                                            <option value="Backend Developer">Backend Developer</option>
+                                            <option value="Data Analyst">Data Analyst</option>
+                                            <option value="Machine Learning Intern">Machine Learning Intern</option>
+                                            <option value="HR Interview">HR Interview / Behavioral</option>
+                                        </optgroup>
+                                        <optgroup label="Engineering &amp; Technology">
+                                            <option value="Software Engineer">Software Engineer</option>
+                                            <option value="Full Stack Developer">Full Stack Developer</option>
+                                            <option value="DevOps Engineer">DevOps Engineer</option>
+                                            <option value="Data Scientist">Data Scientist</option>
+                                            <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+                                            <option value="Cybersecurity Analyst">Cybersecurity Analyst</option>
+                                        </optgroup>
+                                        <optgroup label="Product, Design &amp; Business">
+                                            <option value="Product Manager">Product Manager</option>
+                                            <option value="Project Manager">Project Manager</option>
+                                            <option value="Business Analyst">Business Analyst</option>
+                                            <option value="UX/UI Designer">UX/UI Designer</option>
+                                            <option value="Financial Analyst">Financial Analyst</option>
+                                        </optgroup>
+                                        <optgroup label="Operations &amp; Management">
+                                            <option value="HR Manager">HR Manager</option>
+                                            <option value="Marketing Manager">Marketing Manager</option>
+                                            <option value="Sales Associate">Sales Associate</option>
+                                            <option value="Customer Support">Customer Support</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="type-select">Interview Track</label>
+                                    <select id="type-select">
+                                        <option value="Technical" selected>Technical Interview (Coding, Algorithms &amp; System Design)</option>
+                                        <option value="HR">HR / Behavioral (STAR Method, Culture &amp; Leadership)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="difficulty-select">Difficulty Level</label>
+                                    <select id="difficulty-select">
+                                        <option value="Easy">Easy (Fundamentals &amp; Core Definitions)</option>
+                                        <option value="Medium" selected>Medium (Standard Campus Placement Level)</option>
+                                        <option value="Hard">Hard (Deep Edge Cases, Constraints &amp; Trade-offs)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="experience-select">Candidate Seniority</label>
+                                    <select id="experience-select">
+                                        <option value="Junior" selected>Student / Entry-Level (0–2 years)</option>
+                                        <option value="Mid-Level">Mid-Level (3–5 years)</option>
+                                        <option value="Senior">Senior (5+ years)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="count-select">Number of Technical Questions</label>
+                                    <select id="count-select">
+                                        <option value="3">3 Questions (Quick Sprint)</option>
+                                        <option value="5" selected>5 Questions (Standard 100-Mark Mock Session)</option>
+                                        <option value="8">8 Questions (In-Depth Assessment)</option>
+                                        <option value="10">10 Questions (Comprehensive Placement Drive)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="prompt-version-select">
+                                        <span>Prompt Engineering Version</span>
+                                        <span class="label-hint">Milestone 1 requirement</span>
+                                    </label>
+                                    <select id="prompt-version-select" onchange="onPromptVersionChange()">
+                                        <option value="v4" selected>V4 — Production Prompt (Strict Rubric &amp; Anti-Hallucination)</option>
+                                        <option value="v3">V3 — Improved Prompt (Anchored Persona)</option>
+                                        <option value="v2">V2 — Structured Prompt (4-Criteria Rubric)</option>
+                                        <option value="v1">V1 — Baseline Prompt (Simple Interviewer)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Resume and Job Description inputs -->
+                            <div class="form-grid resume-grid">
+                                <div class="form-group">
+                                    <label for="jd-input">Job Description / Company Posting (Optional)</label>
+                                    <textarea id="jd-input" rows="3"
+                                        placeholder="Paste the job description or internship specifications here to tailor interview questions..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Resume (Optional for ATS &amp; Claim Cross-Check)</label>
+                                    <div class="file-drop-card" onclick="document.getElementById('resume-upload').click()">
+                                        <div class="drop-icon">📄</div>
+                                        <div class="drop-text">
+                                            <strong>Upload Student Resume (PDF or DOCX)</strong>
+                                            <span>Cross-checks your interview answers against resume claims</span>
+                                        </div>
+                                        <input type="file" id="resume-upload" accept=".pdf,.docx" style="display: none;"
+                                            onchange="updateFileName(this)">
+                                        <p id="file-name" class="file-status"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Fixed Rubric Preview Box -->
+                            <div class="rubric-preview-box">
+                                <div class="rubric-preview-title">
+                                    <span>📋 Fixed Evaluation Rubric (20 Marks Total Per Question)</span>
+                                    <span class="rubric-preview-sub">Standardized four criteria grading for every candidate response:</span>
+                                </div>
+                                <div class="rubric-criteria-row">
+                                    <div class="rubric-pill"><strong>Correctness:</strong> 0–5 marks</div>
+                                    <div class="rubric-pill"><strong>Relevance:</strong> 0–5 marks</div>
+                                    <div class="rubric-pill"><strong>Clarity:</strong> 0–5 marks</div>
+                                    <div class="rubric-pill"><strong>Completeness:</strong> 0–5 marks</div>
+                                </div>
+                            </div>
+
+                            <div class="setup-actions">
+                                <button class="btn btn-primary start-btn btn-lg" onclick="startInterview()">
+                                    <span>Start Interview Session 🚀</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================ -->
+                <!-- 2. INTERVIEW SCREEN (LIVE INTERACTION) -->
+                <!-- ============================================================ -->
+                <section id="interview-screen" class="screen hidden">
+                    <!-- Top Progress Bar -->
+                    <div class="interview-topbar">
+                        <div class="interview-meta">
+                            <span id="interview-role-badge" class="badge badge-primary">Software Development Intern</span>
+                            <span id="interview-track-badge" class="badge badge-secondary">Technical</span>
+                            <span id="interview-diff-badge" class="badge badge-outline">Medium</span>
+                            <span id="interview-prompt-badge" class="badge badge-version">Prompt V4</span>
+                        </div>
+
+                        <div class="interview-stats">
+                            <div class="progress-pill">
+                                <span class="progress-label">Progress:</span>
+                                <strong id="q-progress-text">Introduction</strong>
+                            </div>
+                            <div class="score-pill">
+                                <span class="score-label">Session Score:</span>
+                                <strong id="running-score-text">0 / 0</strong>
+                            </div>
+                            <div class="score-pill current-q-pill" id="current-q-pill">
+                                <span class="score-label">Current Answer:</span>
+                                <strong id="current-answer-score-text">-- / 20</strong>
+                            </div>
+                            <div class="timer-pill" id="timer-display">
+                                ⏱️ 00:00
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interview-split">
+                        <!-- Left Sidebar: Answer Input Controls -->
+                        <aside class="interview-sidebar">
+                            <div class="sidebar-card">
+                                <div class="sidebar-header">
+                                    <h3>📝 Submit Your Answer</h3>
+                                    <p>Type your technical answer, explain complexity, or dictate via microphone.</p>
+                                </div>
+
+                                <div class="input-mode-tabs">
+                                    <button id="mode-text-btn" class="mode-tab active" onclick="switchInputMode('text')">⌨️ Typed Answer</button>
+                                    <button id="mode-voice-btn" class="mode-tab" onclick="switchInputMode('voice')">🎙️ Voice Mode</button>
+                                </div>
+
+                                <div id="text-mode-area">
+                                    <div id="paste-warning-banner" class="paste-warning-banner hidden">
+                                        ⚠️ <strong>Pasted answer detected.</strong> Please answer in your own words to receive a score.
+                                    </div>
+                                    <div class="textarea-wrap">
+                                        <textarea id="text-answer-input"
+                                            placeholder="Type your code, algorithm approach, or explanation here...&#10;&#10;Tip: Structure your thoughts clearly. If coding, state approach, write code, then explain time/space complexity."></textarea>
+                                        <div class="textarea-footer">
+                                            <span class="char-count" id="answer-char-count">0 words • 0 chars</span>
+                                            <span class="input-integrity-badge" id="integrity-badge">Original Input ✓</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="sidebar-actions">
+                                        <button id="submit-text-btn" class="btn btn-primary btn-block" onclick="submitTextAnswer()">
+                                            <span>📤 Submit Answer for Evaluation</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div id="voice-mode-area" class="voice-panel hidden">
+                                    <div class="voice-visualizer">
+                                        <div id="mic-icon" class="mic-circle" onclick="toggleVoiceRecognition()" title="Click to toggle microphone">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                                <line x1="12" y1="19" x2="12" y2="23"></line>
+                                                <line x1="8" y1="23" x2="16" y2="23"></line>
+                                            </svg>
+                                        </div>
+                                        <p id="voice-guidance">Click microphone to speak your answer</p>
+                                    </div>
+                                    <div class="voice-transcript-box">
+                                        <span class="transcript-label">Live Spoken Transcript:</span>
+                                        <p id="live-transcript" class="transcript-text">Waiting for speech...</p>
+                                    </div>
+                                    <button id="stop-listening-btn" class="btn btn-secondary btn-block" onclick="stopListening()" style="display: none;">
+                                        ✋ Done Speaking (Submit Answer)
+                                    </button>
+                                </div>
+
+                                <!-- Placement Tip Card -->
+                                <div class="placement-tip-card">
+                                    <div class="ptc-header">
+                                        <span class="ptc-icon">💡</span>
+                                        <h4>Placement Coaching Tip</h4>
+                                    </div>
+                                    <p id="dynamic-tip">
+                                        For technical questions, always state time and space complexity ($O(N)$) and mention edge cases before concluding!
+                                    </p>
+                                </div>
+
+                                <div class="end-interview-wrap">
+                                    <button id="end-btn" class="btn btn-danger btn-block" onclick="endInterview()">
+                                        <span>Finish Interview &amp; Get Report 📊</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- Right Main Area: Conversation & Rubric Cards -->
+                        <div class="interview-main">
+                            <div class="interviewer-status-bar">
+                                <div id="status-indicator" class="status-indicator">
+                                    <div id="pulse-dot" class="pulse-dot"></div>
+                                    <span id="status-text">Initializing Interviewer...</span>
+                                </div>
+                                <div class="rubric-guarantee-badge">
+                                    <span>Fixed 4-Criteria Rubric Active</span>
+                                </div>
+                            </div>
+
+                            <!-- Chat & Evaluation History Stream -->
+                            <div id="chat-history" class="chat-stream"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================ -->
+                <!-- 3. FINAL FEEDBACK & PERFORMANCE REPORT SCREEN -->
+                <!-- ============================================================ -->
+                <section id="feedback-screen" class="screen hidden">
+                    <div class="report-header">
+                        <div class="report-pill">Comprehensive Placement Performance Summary</div>
+                        <h2>Interview Performance Report</h2>
+                        <p class="report-subtitle">
+                            Standardized 4-criteria rubric evaluation, performance breakdown, strengths, growth areas, and personalized placement recommendations.
+                        </p>
+                    </div>
+
+                    <!-- Executive Summary Cards -->
+                    <div class="summary-cards-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">❓</div>
+                            <div class="metric-info">
+                                <span class="metric-label">Questions Answered</span>
+                                <h3 id="rep-q-count">0</h3>
+                                <span class="metric-sub">Technical questions attempted</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-icon">🎯</div>
+                            <div class="metric-info">
+                                <span class="metric-label">Total Marks Obtained</span>
+                                <h3 id="rep-total-marks">0 / 0</h3>
+                                <span class="metric-sub">Cumulative rubric score</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card highlight-card">
+                            <div class="metric-icon">⭐</div>
+                            <div class="metric-info">
+                                <span class="metric-label">Overall Percentage</span>
+                                <h3 id="rep-percentage">0.0%</h3>
+                                <span id="rep-readiness-badge" class="readiness-badge">Calculating...</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-icon">📊</div>
+                            <div class="metric-info">
+                                <span class="metric-label">Average Score / Question</span>
+                                <h3 id="rep-avg-score">0.0 / 20</h3>
+                                <span class="metric-sub">Max 20 marks each</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Criteria Analytics Section -->
+                    <div class="report-section-card">
+                        <div class="section-card-title">
+                            <h3>Criterion-Wise Performance Analytics (0–5 Marks Each)</h3>
+                            <p>Detailed performance breakdown across the four Milestone 1 assessment pillars.</p>
+                        </div>
+
+                        <div class="criteria-analytics-grid">
+                            <div class="criterion-bar-card">
+                                <div class="bar-header">
+                                    <span class="bar-title">Correctness &amp; Technical Accuracy</span>
+                                    <strong id="score-correctness-text">0 / 5</strong>
+                                </div>
+                                <div class="bar-track">
+                                    <div id="score-correctness-bar" class="bar-fill" style="width: 0%;"></div>
+                                </div>
+                                <span class="bar-hint">Measures factual precision, algorithm correctness, and conceptual depth.</span>
+                            </div>
+
+                            <div class="criterion-bar-card">
+                                <div class="bar-header">
+                                    <span class="bar-title">Relevance &amp; Direct Response</span>
+                                    <strong id="score-relevance-text">0 / 5</strong>
+                                </div>
+                                <div class="bar-track">
+                                    <div id="score-relevance-bar" class="bar-fill" style="width: 0%;"></div>
+                                </div>
+                                <span class="bar-hint">Measures whether the question was answered directly without evasion or fluff.</span>
+                            </div>
+
+                            <div class="criterion-bar-card">
+                                <div class="bar-header">
+                                    <span class="bar-title">Clarity &amp; Communication Structure</span>
+                                    <strong id="score-clarity-text">0 / 5</strong>
+                                </div>
+                                <div class="bar-track">
+                                    <div id="score-clarity-bar" class="bar-fill" style="width: 0%;"></div>
+                                </div>
+                                <span class="bar-hint">Evaluates logical articulation, STAR structuring, and crisp delivery.</span>
+                            </div>
+
+                            <div class="criterion-bar-card">
+                                <div class="bar-header">
+                                    <span class="bar-title">Completeness &amp; Edge Cases</span>
+                                    <strong id="score-completeness-text">0 / 5</strong>
+                                </div>
+                                <div class="bar-track">
+                                    <div id="score-completeness-bar" class="bar-fill" style="width: 0%;"></div>
+                                </div>
+                                <span class="bar-hint">Evaluates depth of explanation, handling edge cases, and discussing trade-offs.</span>
+                            </div>
+                        </div>
+
+                        <!-- Strongest vs Weakest Criterion Highlights -->
+                        <div class="insights-row">
+                            <div class="insight-box insight-strong">
+                                <div class="insight-icon">🏆</div>
+                                <div>
+                                    <span class="insight-label">Strongest Criterion</span>
+                                    <h4 id="rep-strongest-crit">N/A</h4>
+                                    <p>Your most reliable competency demonstrated during this interview.</p>
+                                </div>
+                            </div>
+
+                            <div class="insight-box insight-weak">
+                                <div class="insight-icon">🎯</div>
+                                <div>
+                                    <span class="insight-label">Primary Growth Area</span>
+                                    <h4 id="rep-weakest-crit">N/A</h4>
+                                    <p>Highest leverage opportunity for placement revision and practice.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Qualitative Assessment & Recommendations -->
+                    <div id="feedback-content" class="report-section-card">
+                        <div class="feedback-loading">
+                            <div class="spinner"></div>
+                            <p>Synthesizing comprehensive placement feedback and model recommendations...</p>
+                        </div>
+                    </div>
+
+                    <!-- Resume Review Section (if resume uploaded) -->
+                    <div id="resume-score" class="report-section-card hidden"></div>
+
+                    <!-- Report Action Buttons -->
+                    <div class="report-actions">
+                        <button class="btn btn-primary" onclick="navigateTo('setup')">
+                            <span>Start New Mock Interview 🔄</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="window.print()">
+                            <span>Print / Save Performance Report 📄</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="navigateTo('dashboard')">
+                            <span>Return to Dashboard 🧭</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- ============================================================ -->
+                <!-- 4. PRACTICE HISTORY SCREEN -->
+                <!-- ============================================================ -->
+                <section id="history-screen" class="screen hidden">
+                    <div class="setup-header">
+                        <h2>Practice History &amp; Past Sessions</h2>
+                        <p>Track your interview progress and review previously generated performance summaries.</p>
+                    </div>
+                    <div class="history-table-card">
+                        <div id="history-screen-container"></div>
+                    </div>
+                </section>
+
+                <!-- ============================================================ -->
+                <!-- 5. ANALYTICS SCREEN -->
+                <!-- ============================================================ -->
+                <section id="analytics-screen" class="screen hidden">
+                    <div class="setup-header">
+                        <h2>Interview Performance Analytics</h2>
+                        <p>Aggregated evaluation data across your completed mock interview sessions.</p>
+                    </div>
+                    <div class="analytics-content" id="analytics-content-container"></div>
+                </section>
+
+                <!-- ============================================================ -->
+                <!-- 6. RUBRIC INFO SCREEN -->
+                <!-- ============================================================ -->
+                <section id="rubric-info-screen" class="screen hidden">
+                    <div class="setup-header">
+                        <h2>The Standardized 4-Criteria Rubric</h2>
+                        <p>Learn how InterviewAce grades each answer on a fixed 20-mark scale.</p>
+                    </div>
+                    <div class="rubric-info-grid">
+                        <div class="rubric-info-card">
+                            <div class="ric-header">
+                                <span class="ric-badge">Criterion 1</span>
+                                <h3>Correctness &amp; Technical Accuracy (0–5 Marks)</h3>
+                            </div>
+                            <p>Assesses factual correctness, algorithmic accuracy, edge-case handling, and conceptual mastery. Zero credit is awarded for incorrect or hallucinated technical assertions.</p>
+                        </div>
+
+                        <div class="rubric-info-card">
+                            <div class="ric-header">
+                                <span class="ric-badge">Criterion 2</span>
+                                <h3>Relevance &amp; Direct Answers (0–5 Marks)</h3>
+                            </div>
+                            <p>Evaluates whether the candidate directly addressed the specific prompt without deflection, waffle, or generic filler. Direct, on-point responses receive top marks.</p>
+                        </div>
+
+                        <div class="rubric-info-card">
+                            <div class="ric-header">
+                                <span class="ric-badge">Criterion 3</span>
+                                <h3>Clarity &amp; Logical Structure (0–5 Marks)</h3>
+                            </div>
+                            <p>Measures communication effectiveness, structured explanations (such as STAR method for behavioral questions or approach-code-complexity for coding), and clear terminology.</p>
+                        </div>
+
+                        <div class="rubric-info-card">
+                            <div class="ric-header">
+                                <span class="ric-badge">Criterion 4</span>
+                                <h3>Completeness &amp; Depth (0–5 Marks)</h3>
+                            </div>
+                            <p>Evaluates thoroughness, discussion of trade-offs (time vs. space complexity, relational vs. NoSQL), scaling constraints, and practical real-world considerations.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js?v=2.1"></script>
+</body>
+
+</html>
