@@ -68,10 +68,68 @@ def test_db_status_endpoint():
     assert "type" in data
 
 
+def test_trailing_slashes_and_route_aliases():
+    """Verify trailing slashes on critical endpoints do not 404."""
+    client = TestClient(app)
+
+    resp_health_slash = client.get("/health/")
+    assert resp_health_slash.status_code == 200
+
+    resp_ready_slash = client.get("/ready/")
+    assert resp_ready_slash.status_code == 200
+
+    resp_db_slash = client.get("/db/status/")
+    assert resp_db_slash.status_code == 200
+
+
+def test_vercel_serverless_rewrite_path_normalization():
+    """
+    Simulate Vercel serverless environment where rewrites channel incoming requests
+    to api/index.py while passing the original request path in x-matched-path or x-forwarded-uri.
+    """
+    client = TestClient(app)
+
+    # 1. /health requested through rewrite
+    resp_health = client.get("/api/index.py", headers={"x-matched-path": "/health"})
+    assert resp_health.status_code == 200
+    assert resp_health.json()["status"] in ("ok", "degraded")
+
+    # 2. /app/ requested through rewrite
+    resp_app = client.get("/api/index.py", headers={"x-matched-path": "/app/"})
+    assert resp_app.status_code == 200
+    assert "InterviewAce" in resp_app.text
+
+    # 3. /db/status requested through rewrite
+    resp_db = client.get("/api/index.py", headers={"x-matched-path": "/db/status"})
+    assert resp_db.status_code == 200
+    assert "configured" in resp_db.json()
+
+    # 4. / requested through rewrite by browser
+    resp_root_browser = client.get("/api/index.py", headers={"x-matched-path": "/", "Accept": "text/html"}, follow_redirects=False)
+    assert resp_root_browser.status_code in (302, 307)
+    assert resp_root_browser.headers["location"] == "/app/"
+
+    # 5. / requested through rewrite by API client
+    resp_root_api = client.get("/api/index.py", headers={"x-matched-path": "/"})
+    assert resp_root_api.status_code == 200
+    assert "InterviewAce Backend is running" in resp_root_api.json()["message"]
+
+    # 6. x-forwarded-uri fallback
+    resp_fwd = client.get("/api/index.py", headers={"x-forwarded-uri": "/health"})
+    assert resp_fwd.status_code == 200
+
+    # 7. Direct /api/index.py invocation without headers maps to root
+    resp_direct = client.get("/api/index.py")
+    assert resp_direct.status_code == 200
+
+    # 8. /api/ prefixed requests e.g. /api/health
+    resp_api_prefix = client.get("/api/health")
+    assert resp_api_prefix.status_code == 200
+
+
 def test_mysql_url_parsing():
     """Verify get_mysql_config parses full connection strings."""
     with patch.dict(os.environ, {"MYSQL_URL": "mysql://dbuser:secretpass@dbhost.example.com:3307/interview_db?ssl=true"}, clear=False):
-        # Re-import or call with patched env
         from backend.db import get_mysql_config
         cfg = get_mysql_config()
         assert cfg is not None

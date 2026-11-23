@@ -286,9 +286,13 @@ def history_to_messages(history: List[dict]) -> List[BaseMessage]:
 def redirect_app_root():
     return RedirectResponse(url="/app/")
 
+@app.get("/api/index.py", include_in_schema=False)
+@app.get("/api/index", include_in_schema=False)
 @app.get("/")
 @app.get("/ready")
+@app.get("/ready/", include_in_schema=False)
 @app.get("/health")
+@app.get("/health/", include_in_schema=False)
 def health_check(request: Request = None):
     """
     Readiness, not just liveness.
@@ -315,12 +319,14 @@ def health_check(request: Request = None):
 
 
 @app.get("/db/status", tags=["system"])
+@app.get("/db/status/", tags=["system"], include_in_schema=False)
 def db_status():
     """Return MySQL database health and connectivity status."""
     return db.check_mysql_health()
 
 
 @app.get("/prompt_versions")
+@app.get("/prompt_versions/", include_in_schema=False)
 def list_prompt_versions():
     """Return available prompt versions for developer and evaluation mode."""
     return {
