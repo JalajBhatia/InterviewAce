@@ -1,0 +1,46 @@
+[project]
+name = "interview-practice-partner-039"
+version = "0.1.0"
+description = "InterviewAce — AI-Powered Mock Interview and Personalized Feedback Assistant."
+requires-python = ">=3.12,<3.14"
+
+dependencies = [
+    # --- Web layer ---
+    "fastapi>=0.115",
+    "starlette>=0.40.0,<1.0.0",
+    "uvicorn[standard]>=0.32",
+    "pydantic>=2.9",
+    "python-multipart>=0.0.12",  # required by FastAPI for UploadFile / form parsing
+    # --- LLM ---
+    # langchain-google-genai pulls the supported `google-genai` SDK.
+    # The old `google-generativeai` package is end-of-life.
+    "langchain-core>=1.5.3",
+    "langchain-google-genai>=4.3.2",
+    "langgraph>=1.2.10",  # interview flow is a state machine, not a pipeline
+    # Checkpointed graph state, so an in-progress interview survives a restart.
+    # Nothing is retained across visits: there is no session history.
+    "langgraph-checkpoint-sqlite>=3.1.1",
+    "pymysql>=1.1.0",
+
+    # --- Resume parsing ---
+    "pypdf>=5.1",
+    "python-docx>=1.1",
+    # --- Config ---
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+# Dev-only. Installed by `uv sync`, excluded by `uv sync --no-dev` (used in Docker).
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "httpx>=0.27.0,<0.28.0",  # FastAPI TestClient transport
+]
+
+[tool.pytest.ini_options]
+# The app is an application, not an installed package, so the repo root has to be
+# on sys.path for `from backend import ...` to resolve the same way it does under
+# `uvicorn backend.main:app`.
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"

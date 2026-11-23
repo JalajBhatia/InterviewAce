@@ -1,0 +1,1070 @@
+{
+  "summary": {
+    "v1": {
+      "version_name": "V1 \u2014 Baseline Prompt",
+      "total_cases": 10,
+      "format_valid_rate": 0.0,
+      "rubric_compliance_rate": 0.0,
+      "expected_range_accuracy": 30.0,
+      "discrimination_delta": 6,
+      "avg_score": 16.6
+    },
+    "v2": {
+      "version_name": "V2 \u2014 Structured Prompt",
+      "total_cases": 10,
+      "format_valid_rate": 100.0,
+      "rubric_compliance_rate": 100.0,
+      "expected_range_accuracy": 30.0,
+      "discrimination_delta": 12,
+      "avg_score": 11.7
+    },
+    "v3": {
+      "version_name": "V3 \u2014 Improved Prompt",
+      "total_cases": 10,
+      "format_valid_rate": 100.0,
+      "rubric_compliance_rate": 100.0,
+      "expected_range_accuracy": 100.0,
+      "discrimination_delta": 16,
+      "avg_score": 9.8
+    },
+    "v4": {
+      "version_name": "V4 \u2014 Final Production Prompt",
+      "total_cases": 10,
+      "format_valid_rate": 100.0,
+      "rubric_compliance_rate": 100.0,
+      "expected_range_accuracy": 100.0,
+      "discrimination_delta": 16,
+      "avg_score": 9.7
+    }
+  },
+  "detailed_results": {
+    "v1": [
+      {
+        "case_id": "TC01",
+        "role": "Software Development Intern",
+        "expected_category": "Correct (Exemplary)",
+        "expected_score_range": "18-20",
+        "evaluation": {
+          "format_valid": false,
+          "rubric_present": false,
+          "correctness": null,
+          "relevance": null,
+          "clarity": null,
+          "completeness": null,
+          "total_score": 20,
+          "percentage": 100.0,
+          "strengths": [
+            "General participation"
+          ],
+          "areas_for_improvement": [
+            "Needs more detail"
+          ],
+          "suggested_improved_answer": null,
+          "follow_up_question": "Can you tell me more?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC02",
+        "role": "Backend Developer",
+        "expected_category": "Partially Correct",
+        "expected_score_range": "11-14",
+        "evaluation": {
+          "format_valid": false,
+          "rubric_present": false,
+          "correctness": null,
+          "relevance": null,
+          "clarity": null,
+          "completeness": null,
+          "total_score": 20,
+          "percentage": 100.0,
+          "strengths": [
+            "General participation"
+          ],
+          "areas_for_improvement": [
+            "Needs more detail"
+          ],
+          "suggested_improved_answer": null,
+          "follow_up_question": "Can you tell me more?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC03",
+        "role": "Frontend Developer",
+        "expected_category": "Incorrect (Conceptual Errors)",
+        "expected_score_range": "4-7",
+        "evaluation": {
+          "format_valid": false,
+          "rubric_present": false,
+          "correctness": null,
+          "relevance": null,
+          "clarity": null,
+          "completeness": null,
+          "total_score": 17,
+          "percentage": 85.0,
+          "strengths": [
+            "General participation"
+          ],
+          "areas_for_improvement": [
+            "Needs more detail"
+          ],
+          "suggested_improved_answer": null,
+          "follow_up_question": "Can you tell me more?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC04",
+        "role": "Data Analyst",
+        "expected_category": "Very Short (Superficial)",
+        "expected_score_range": "5-8",
+        "evaluation": {
+          "format_valid": false,
+          "rubric_present": false,
+          "correctness": null,
+          "relevance": null,
+          "clarity": null,
+          "completeness": null,
+          "total_score": 11,
+          "percentage": 55.0,
+          "strengths": [
+            "General participation"
+          ],
+          "areas_for_improvement": [
+            "Needs more detail"
+          ],
+          "suggested_improved_answer": null,
+          "follow_up_question": "Can you tell me more?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC05",
+        "role": "Machine Learning Intern",
+        "expected_category": "Irrelevant (Off-topic)",
+        "expected_score_range": "0-3",
+        "evaluation": {
+          "format_valid": false,
+          "rubric_present": false,
+          "correctness": null,
+          "relevance": null,
+          "clarity": null,
+          "completeness": null,
+          "total_score": 14,
+          "percentage": 70.0,
+          "strengths": [
+            "General participation"
+          ],
+          "areas_for_improvement": [
+            "Needs more detail"
+          ],
+          "suggested_improved_answer": null,
+          "follow_up_question": "Can you tell me more?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC06",
+        "role": "Software Development Intern",
+        "expected_category": "Missing Important Points",
+        "expected_score_range": "12-14",
+        "evaluation": {
+          "format_valid": false,
+          "rubric_present": false,
+          "correctness": null,
+          "relevance": null,
+          "clarity": null,
+          "completeness": null,
+          "total_score": 14,
+          "percentage": 70.0,
+          "strengths": [
+            "General participation"
+          ],
+          "areas_for_improvement": [
+            "Needs more detail"
+          ],
+          "suggested_improved_answer": null,
+          "follow_up_question": "Can you tell me more?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC07",
+        "role": "Backend Developer",
+        "expected_category": "Rambling (Misleading)",
+        "expected_score_range": "6-9",
+        "evaluation": {
+          "format_valid": false,
+          "rubric_present": false,
+          "correctness": null,
+          "relevance": null,
+          "clarity": null,
+          "completeness": null,
+          "total_score": 20,
+          "percentage": 100.0,
+          "strengths": [
+            "General participation"
+          ],
+          "areas_for_improvement": [
+            "Needs more detail"
+          ],
+          "suggested_improved_answer": null,
+          "follow_up_question": "Can you tell me more?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC08",
+        "role": "Software Development Intern",
+        "expected_category": "Fabricated / Hallucinated",
+        "expected_score_range": "2-5",
+        "evaluation": {
+          "format_valid": false,
+          "rubric_present": false,
+          "correctness": null,
+          "relevance": null,
+          "clarity": null,
+          "completeness": null,
+          "total_score": 14,
+          "percentage": 70.0,
+          "strengths": [
+            "General participation"
+          ],
+          "areas_for_improvement": [
+            "Needs more detail"
+          ],
+          "suggested_improved_answer": null,
+          "follow_up_question": "Can you tell me more?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC09",
+        "role": "HR Interview",
+        "expected_category": "Correct (STAR Behavioral)",
+        "expected_score_range": "18-20",
+        "evaluation": {
+          "format_valid": false,
+          "rubric_present": false,
+          "correctness": null,
+          "relevance": null,
+          "clarity": null,
+          "completeness": null,
+          "total_score": 20,
+          "percentage": 100.0,
+          "strengths": [
+            "General participation"
+          ],
+          "areas_for_improvement": [
+            "Needs more detail"
+          ],
+          "suggested_improved_answer": null,
+          "follow_up_question": "Can you tell me more?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC10",
+        "role": "HR Interview",
+        "expected_category": "Weak / Unprofessional",
+        "expected_score_range": "4-7",
+        "evaluation": {
+          "format_valid": false,
+          "rubric_present": false,
+          "correctness": null,
+          "relevance": null,
+          "clarity": null,
+          "completeness": null,
+          "total_score": 16,
+          "percentage": 80.0,
+          "strengths": [
+            "General participation"
+          ],
+          "areas_for_improvement": [
+            "Needs more detail"
+          ],
+          "suggested_improved_answer": null,
+          "follow_up_question": "Can you tell me more?",
+          "action": "advance"
+        }
+      }
+    ],
+    "v2": [
+      {
+        "case_id": "TC01",
+        "role": "Software Development Intern",
+        "expected_category": "Correct (Exemplary)",
+        "expected_score_range": "18-20",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 5,
+          "relevance": 5,
+          "clarity": 4,
+          "completeness": 4,
+          "total_score": 18,
+          "percentage": 90.0,
+          "strengths": [
+            "Addressed topic with 83 words"
+          ],
+          "areas_for_improvement": [
+            "Review concepts"
+          ],
+          "suggested_improved_answer": "A more structured answer would cover definitions clearly.",
+          "follow_up_question": "What else can you tell me about this?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC02",
+        "role": "Backend Developer",
+        "expected_category": "Partially Correct",
+        "expected_score_range": "11-14",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 5,
+          "relevance": 5,
+          "clarity": 4,
+          "completeness": 4,
+          "total_score": 18,
+          "percentage": 90.0,
+          "strengths": [
+            "Addressed topic with 49 words"
+          ],
+          "areas_for_improvement": [
+            "Review concepts"
+          ],
+          "suggested_improved_answer": "A more structured answer would cover definitions clearly.",
+          "follow_up_question": "What else can you tell me about this?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC03",
+        "role": "Frontend Developer",
+        "expected_category": "Incorrect (Conceptual Errors)",
+        "expected_score_range": "4-7",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 2,
+          "relevance": 3,
+          "clarity": 3,
+          "completeness": 2,
+          "total_score": 10,
+          "percentage": 50.0,
+          "strengths": [
+            "Addressed topic with 55 words"
+          ],
+          "areas_for_improvement": [
+            "Review concepts"
+          ],
+          "suggested_improved_answer": "A more structured answer would cover definitions clearly.",
+          "follow_up_question": "What else can you tell me about this?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC04",
+        "role": "Data Analyst",
+        "expected_category": "Very Short (Superficial)",
+        "expected_score_range": "5-8",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 2,
+          "relevance": 2,
+          "clarity": 2,
+          "completeness": 1,
+          "total_score": 7,
+          "percentage": 35.0,
+          "strengths": [
+            "Addressed topic with 30 words"
+          ],
+          "areas_for_improvement": [
+            "Review concepts"
+          ],
+          "suggested_improved_answer": "A more structured answer would cover definitions clearly.",
+          "follow_up_question": "What else can you tell me about this?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC05",
+        "role": "Machine Learning Intern",
+        "expected_category": "Irrelevant (Off-topic)",
+        "expected_score_range": "0-3",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 1,
+          "relevance": 1,
+          "clarity": 3,
+          "completeness": 1,
+          "total_score": 6,
+          "percentage": 30.0,
+          "strengths": [
+            "Addressed topic with 40 words"
+          ],
+          "areas_for_improvement": [
+            "Review concepts"
+          ],
+          "suggested_improved_answer": "A more structured answer would cover definitions clearly.",
+          "follow_up_question": "What else can you tell me about this?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC06",
+        "role": "Software Development Intern",
+        "expected_category": "Missing Important Points",
+        "expected_score_range": "12-14",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 2,
+          "relevance": 3,
+          "clarity": 2,
+          "completeness": 2,
+          "total_score": 9,
+          "percentage": 45.0,
+          "strengths": [
+            "Addressed topic with 42 words"
+          ],
+          "areas_for_improvement": [
+            "Review concepts"
+          ],
+          "suggested_improved_answer": "A more structured answer would cover definitions clearly.",
+          "follow_up_question": "What else can you tell me about this?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC07",
+        "role": "Backend Developer",
+        "expected_category": "Rambling (Misleading)",
+        "expected_score_range": "6-9",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 2,
+          "relevance": 2,
+          "clarity": 2,
+          "completeness": 4,
+          "total_score": 10,
+          "percentage": 50.0,
+          "strengths": [
+            "Addressed topic with 68 words"
+          ],
+          "areas_for_improvement": [
+            "Review concepts"
+          ],
+          "suggested_improved_answer": "A more structured answer would cover definitions clearly.",
+          "follow_up_question": "What else can you tell me about this?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC08",
+        "role": "Software Development Intern",
+        "expected_category": "Fabricated / Hallucinated",
+        "expected_score_range": "2-5",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 3,
+          "relevance": 3,
+          "clarity": 3,
+          "completeness": 3,
+          "total_score": 12,
+          "percentage": 60.0,
+          "strengths": [
+            "Addressed topic with 41 words"
+          ],
+          "areas_for_improvement": [
+            "Review concepts"
+          ],
+          "suggested_improved_answer": "A more structured answer would cover definitions clearly.",
+          "follow_up_question": "What else can you tell me about this?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC09",
+        "role": "HR Interview",
+        "expected_category": "Correct (STAR Behavioral)",
+        "expected_score_range": "18-20",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 5,
+          "relevance": 5,
+          "clarity": 4,
+          "completeness": 4,
+          "total_score": 18,
+          "percentage": 90.0,
+          "strengths": [
+            "Addressed topic with 105 words"
+          ],
+          "areas_for_improvement": [
+            "Review concepts"
+          ],
+          "suggested_improved_answer": "A more structured answer would cover definitions clearly.",
+          "follow_up_question": "What else can you tell me about this?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC10",
+        "role": "HR Interview",
+        "expected_category": "Weak / Unprofessional",
+        "expected_score_range": "4-7",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 2,
+          "relevance": 3,
+          "clarity": 2,
+          "completeness": 2,
+          "total_score": 9,
+          "percentage": 45.0,
+          "strengths": [
+            "Addressed topic with 48 words"
+          ],
+          "areas_for_improvement": [
+            "Review concepts"
+          ],
+          "suggested_improved_answer": "A more structured answer would cover definitions clearly.",
+          "follow_up_question": "What else can you tell me about this?",
+          "action": "follow_up"
+        }
+      }
+    ],
+    "v3": [
+      {
+        "case_id": "TC01",
+        "role": "Software Development Intern",
+        "expected_category": "Correct (Exemplary)",
+        "expected_score_range": "18-20",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 5,
+          "relevance": 5,
+          "clarity": 5,
+          "completeness": 4,
+          "total_score": 19,
+          "percentage": 95.0,
+          "strengths": [
+            "Clear focus on core technical concepts"
+          ],
+          "areas_for_improvement": [
+            "Address edge cases and avoid unverified claims"
+          ],
+          "suggested_improved_answer": "For Software Development Intern, a standard answer explicitly states core principles and trade-offs.",
+          "follow_up_question": "Can you clarify the trade-offs or implementation details for What is the difference between...?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC02",
+        "role": "Backend Developer",
+        "expected_category": "Partially Correct",
+        "expected_score_range": "11-14",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 3,
+          "relevance": 4,
+          "clarity": 4,
+          "completeness": 2,
+          "total_score": 13,
+          "percentage": 65.0,
+          "strengths": [
+            "Clear focus on core technical concepts"
+          ],
+          "areas_for_improvement": [
+            "Address edge cases and avoid unverified claims"
+          ],
+          "suggested_improved_answer": "For Backend Developer, a standard answer explicitly states core principles and trade-offs.",
+          "follow_up_question": "Can you clarify the trade-offs or implementation details for Can you explain how HTTPS esta...?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC03",
+        "role": "Frontend Developer",
+        "expected_category": "Incorrect (Conceptual Errors)",
+        "expected_score_range": "4-7",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 1,
+          "relevance": 3,
+          "clarity": 2,
+          "completeness": 1,
+          "total_score": 7,
+          "percentage": 35.0,
+          "strengths": [
+            "Clear focus on core technical concepts"
+          ],
+          "areas_for_improvement": [
+            "Address edge cases and avoid unverified claims"
+          ],
+          "suggested_improved_answer": "For Frontend Developer, a standard answer explicitly states core principles and trade-offs.",
+          "follow_up_question": "Can you clarify the trade-offs or implementation details for How does CSS specificity work,...?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC04",
+        "role": "Data Analyst",
+        "expected_category": "Very Short (Superficial)",
+        "expected_score_range": "5-8",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 2,
+          "relevance": 2,
+          "clarity": 2,
+          "completeness": 1,
+          "total_score": 7,
+          "percentage": 35.0,
+          "strengths": [
+            "Clear focus on core technical concepts"
+          ],
+          "areas_for_improvement": [
+            "Address edge cases and avoid unverified claims"
+          ],
+          "suggested_improved_answer": "For Data Analyst, a standard answer explicitly states core principles and trade-offs.",
+          "follow_up_question": "Can you clarify the trade-offs or implementation details for What is a SQL JOIN, and can yo...?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC05",
+        "role": "Machine Learning Intern",
+        "expected_category": "Irrelevant (Off-topic)",
+        "expected_score_range": "0-3",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 0,
+          "relevance": 0,
+          "clarity": 3,
+          "completeness": 0,
+          "total_score": 3,
+          "percentage": 15.0,
+          "strengths": [
+            "Clear focus on core technical concepts"
+          ],
+          "areas_for_improvement": [
+            "Address edge cases and avoid unverified claims"
+          ],
+          "suggested_improved_answer": "For Machine Learning Intern, a standard answer explicitly states core principles and trade-offs.",
+          "follow_up_question": "Can you clarify the trade-offs or implementation details for What is overfitting in machine...?",
+          "action": "redirect"
+        }
+      },
+      {
+        "case_id": "TC06",
+        "role": "Software Development Intern",
+        "expected_category": "Missing Important Points",
+        "expected_score_range": "12-14",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 4,
+          "relevance": 4,
+          "clarity": 4,
+          "completeness": 2,
+          "total_score": 14,
+          "percentage": 70.0,
+          "strengths": [
+            "Clear focus on core technical concepts"
+          ],
+          "areas_for_improvement": [
+            "Address edge cases and avoid unverified claims"
+          ],
+          "suggested_improved_answer": "For Software Development Intern, a standard answer explicitly states core principles and trade-offs.",
+          "follow_up_question": "Can you clarify the trade-offs or implementation details for How does Binary Search work, a...?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC07",
+        "role": "Backend Developer",
+        "expected_category": "Rambling (Misleading)",
+        "expected_score_range": "6-9",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 1,
+          "relevance": 2,
+          "clarity": 1,
+          "completeness": 2,
+          "total_score": 6,
+          "percentage": 30.0,
+          "strengths": [
+            "Clear focus on core technical concepts"
+          ],
+          "areas_for_improvement": [
+            "Address edge cases and avoid unverified claims"
+          ],
+          "suggested_improved_answer": "For Backend Developer, a standard answer explicitly states core principles and trade-offs.",
+          "follow_up_question": "Can you clarify the trade-offs or implementation details for Explain the ACID properties of...?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC08",
+        "role": "Software Development Intern",
+        "expected_category": "Fabricated / Hallucinated",
+        "expected_score_range": "2-5",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 0,
+          "relevance": 1,
+          "clarity": 2,
+          "completeness": 1,
+          "total_score": 4,
+          "percentage": 20.0,
+          "strengths": [
+            "Clear focus on core technical concepts"
+          ],
+          "areas_for_improvement": [
+            "Address edge cases and avoid unverified claims"
+          ],
+          "suggested_improved_answer": "For Software Development Intern, a standard answer explicitly states core principles and trade-offs.",
+          "follow_up_question": "Can you clarify the trade-offs or implementation details for Describe your hands-on experie...?",
+          "action": "redirect"
+        }
+      },
+      {
+        "case_id": "TC09",
+        "role": "HR Interview",
+        "expected_category": "Correct (STAR Behavioral)",
+        "expected_score_range": "18-20",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 5,
+          "relevance": 5,
+          "clarity": 5,
+          "completeness": 5,
+          "total_score": 20,
+          "percentage": 100.0,
+          "strengths": [
+            "Clear focus on core technical concepts"
+          ],
+          "areas_for_improvement": [
+            "Address edge cases and avoid unverified claims"
+          ],
+          "suggested_improved_answer": "For HR Interview, a standard answer explicitly states core principles and trade-offs.",
+          "follow_up_question": "Can you clarify the trade-offs or implementation details for Tell me about a time you faced...?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC10",
+        "role": "HR Interview",
+        "expected_category": "Weak / Unprofessional",
+        "expected_score_range": "4-7",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 1,
+          "relevance": 2,
+          "clarity": 1,
+          "completeness": 1,
+          "total_score": 5,
+          "percentage": 25.0,
+          "strengths": [
+            "Clear focus on core technical concepts"
+          ],
+          "areas_for_improvement": [
+            "Address edge cases and avoid unverified claims"
+          ],
+          "suggested_improved_answer": "For HR Interview, a standard answer explicitly states core principles and trade-offs.",
+          "follow_up_question": "Can you clarify the trade-offs or implementation details for How do you prioritize your tas...?",
+          "action": "follow_up"
+        }
+      }
+    ],
+    "v4": [
+      {
+        "case_id": "TC01",
+        "role": "Software Development Intern",
+        "expected_category": "Correct (Exemplary)",
+        "expected_score_range": "18-20",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 5,
+          "relevance": 5,
+          "clarity": 5,
+          "completeness": 4,
+          "total_score": 19,
+          "percentage": 95.0,
+          "strengths": [
+            "Engaged with the Software Development Intern context directly",
+            "Demonstrated awareness of the fundamental interview subject"
+          ],
+          "areas_for_improvement": [
+            "Quantify trade-offs and cite concrete examples",
+            "Structure technical answers with premise, implementation, and complexity"
+          ],
+          "suggested_improved_answer": "As a Software Development Intern, a top-tier answer addresses: 1) Clear conceptual definition, 2) Technical mechanism/implementation, 3) Practical trade-offs or STAR methodology results.",
+          "follow_up_question": "Excellent explanation. How would you monitor or test this in a production deployment?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC02",
+        "role": "Backend Developer",
+        "expected_category": "Partially Correct",
+        "expected_score_range": "11-14",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 3,
+          "relevance": 4,
+          "clarity": 4,
+          "completeness": 2,
+          "total_score": 13,
+          "percentage": 65.0,
+          "strengths": [
+            "Engaged with the Backend Developer context directly",
+            "Demonstrated awareness of the fundamental interview subject"
+          ],
+          "areas_for_improvement": [
+            "Quantify trade-offs and cite concrete examples",
+            "Structure technical answers with premise, implementation, and complexity"
+          ],
+          "suggested_improved_answer": "As a Backend Developer, a top-tier answer addresses: 1) Clear conceptual definition, 2) Technical mechanism/implementation, 3) Practical trade-offs or STAR methodology results.",
+          "follow_up_question": "You mentioned encryption, but how does the client verify server identity before symmetric key generation?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC03",
+        "role": "Frontend Developer",
+        "expected_category": "Incorrect (Conceptual Errors)",
+        "expected_score_range": "4-7",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 1,
+          "relevance": 2,
+          "clarity": 2,
+          "completeness": 1,
+          "total_score": 6,
+          "percentage": 30.0,
+          "strengths": [
+            "Engaged with the Frontend Developer context directly",
+            "Demonstrated awareness of the fundamental interview subject"
+          ],
+          "areas_for_improvement": [
+            "Quantify trade-offs and cite concrete examples",
+            "Structure technical answers with premise, implementation, and complexity"
+          ],
+          "suggested_improved_answer": "As a Frontend Developer, a top-tier answer addresses: 1) Clear conceptual definition, 2) Technical mechanism/implementation, 3) Practical trade-offs or STAR methodology results.",
+          "follow_up_question": "Let's revisit selector precedence. In CSS, what is the exact weight difference between an ID selector and a Class selector?",
+          "action": "rephrase"
+        }
+      },
+      {
+        "case_id": "TC04",
+        "role": "Data Analyst",
+        "expected_category": "Very Short (Superficial)",
+        "expected_score_range": "5-8",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 2,
+          "relevance": 2,
+          "clarity": 2,
+          "completeness": 1,
+          "total_score": 7,
+          "percentage": 35.0,
+          "strengths": [
+            "Engaged with the Data Analyst context directly",
+            "Demonstrated awareness of the fundamental interview subject"
+          ],
+          "areas_for_improvement": [
+            "Quantify trade-offs and cite concrete examples",
+            "Structure technical answers with premise, implementation, and complexity"
+          ],
+          "suggested_improved_answer": "As a Data Analyst, a top-tier answer addresses: 1) Clear conceptual definition, 2) Technical mechanism/implementation, 3) Practical trade-offs or STAR methodology results.",
+          "follow_up_question": "Can you elaborate with an example of an ON condition, and how unmatched rows behave in a LEFT JOIN?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC05",
+        "role": "Machine Learning Intern",
+        "expected_category": "Irrelevant (Off-topic)",
+        "expected_score_range": "0-3",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 0,
+          "relevance": 0,
+          "clarity": 3,
+          "completeness": 0,
+          "total_score": 3,
+          "percentage": 15.0,
+          "strengths": [
+            "Engaged with the Machine Learning Intern context directly",
+            "Demonstrated awareness of the fundamental interview subject"
+          ],
+          "areas_for_improvement": [
+            "Quantify trade-offs and cite concrete examples",
+            "Structure technical answers with premise, implementation, and complexity"
+          ],
+          "suggested_improved_answer": "As a Machine Learning Intern, a top-tier answer addresses: 1) Clear conceptual definition, 2) Technical mechanism/implementation, 3) Practical trade-offs or STAR methodology results.",
+          "follow_up_question": "That sounds like an interesting desktop project, but let's refocus on machine learning: what causes a model to overfit?",
+          "action": "redirect"
+        }
+      },
+      {
+        "case_id": "TC06",
+        "role": "Software Development Intern",
+        "expected_category": "Missing Important Points",
+        "expected_score_range": "12-14",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 4,
+          "relevance": 4,
+          "clarity": 4,
+          "completeness": 2,
+          "total_score": 14,
+          "percentage": 70.0,
+          "strengths": [
+            "Engaged with the Software Development Intern context directly",
+            "Demonstrated awareness of the fundamental interview subject"
+          ],
+          "areas_for_improvement": [
+            "Quantify trade-offs and cite concrete examples",
+            "Structure technical answers with premise, implementation, and complexity"
+          ],
+          "suggested_improved_answer": "As a Software Development Intern, a top-tier answer addresses: 1) Clear conceptual definition, 2) Technical mechanism/implementation, 3) Practical trade-offs or STAR methodology results.",
+          "follow_up_question": "Good summary of the search steps. How do you prevent integer overflow when calculating mid, and what is the base loop termination condition?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC07",
+        "role": "Backend Developer",
+        "expected_category": "Rambling (Misleading)",
+        "expected_score_range": "6-9",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 1,
+          "relevance": 2,
+          "clarity": 1,
+          "completeness": 2,
+          "total_score": 6,
+          "percentage": 30.0,
+          "strengths": [
+            "Engaged with the Backend Developer context directly",
+            "Demonstrated awareness of the fundamental interview subject"
+          ],
+          "areas_for_improvement": [
+            "Quantify trade-offs and cite concrete examples",
+            "Structure technical answers with premise, implementation, and complexity"
+          ],
+          "suggested_improved_answer": "As a Backend Developer, a top-tier answer addresses: 1) Clear conceptual definition, 2) Technical mechanism/implementation, 3) Practical trade-offs or STAR methodology results.",
+          "follow_up_question": "Let's focus specifically on Isolation: how does a database prevent dirty reads and non-repeatable reads during concurrent execution?",
+          "action": "follow_up"
+        }
+      },
+      {
+        "case_id": "TC08",
+        "role": "Software Development Intern",
+        "expected_category": "Fabricated / Hallucinated",
+        "expected_score_range": "2-5",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 0,
+          "relevance": 1,
+          "clarity": 2,
+          "completeness": 1,
+          "total_score": 4,
+          "percentage": 20.0,
+          "strengths": [
+            "Engaged with the Software Development Intern context directly",
+            "Demonstrated awareness of the fundamental interview subject"
+          ],
+          "areas_for_improvement": [
+            "Quantify trade-offs and cite concrete examples",
+            "Structure technical answers with premise, implementation, and complexity"
+          ],
+          "suggested_improved_answer": "As a Software Development Intern, a top-tier answer addresses: 1) Clear conceptual definition, 2) Technical mechanism/implementation, 3) Practical trade-offs or STAR methodology results.",
+          "follow_up_question": "In real-world campus hiring, recruiters value honesty over inflated numbers. Can you describe a small personal project where you built a Docker container?",
+          "action": "redirect"
+        }
+      },
+      {
+        "case_id": "TC09",
+        "role": "HR Interview",
+        "expected_category": "Correct (STAR Behavioral)",
+        "expected_score_range": "18-20",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 5,
+          "relevance": 5,
+          "clarity": 5,
+          "completeness": 5,
+          "total_score": 20,
+          "percentage": 100.0,
+          "strengths": [
+            "Engaged with the HR Interview context directly",
+            "Demonstrated awareness of the fundamental interview subject"
+          ],
+          "areas_for_improvement": [
+            "Quantify trade-offs and cite concrete examples",
+            "Structure technical answers with premise, implementation, and complexity"
+          ],
+          "suggested_improved_answer": "As a HR Interview, a top-tier answer addresses: 1) Clear conceptual definition, 2) Technical mechanism/implementation, 3) Practical trade-offs or STAR methodology results.",
+          "follow_up_question": "Excellent explanation. How would you monitor or test this in a production deployment?",
+          "action": "advance"
+        }
+      },
+      {
+        "case_id": "TC10",
+        "role": "HR Interview",
+        "expected_category": "Weak / Unprofessional",
+        "expected_score_range": "4-7",
+        "evaluation": {
+          "format_valid": true,
+          "rubric_present": true,
+          "correctness": 1,
+          "relevance": 2,
+          "clarity": 1,
+          "completeness": 1,
+          "total_score": 5,
+          "percentage": 25.0,
+          "strengths": [
+            "Engaged with the HR Interview context directly",
+            "Demonstrated awareness of the fundamental interview subject"
+          ],
+          "areas_for_improvement": [
+            "Quantify trade-offs and cite concrete examples",
+            "Structure technical answers with premise, implementation, and complexity"
+          ],
+          "suggested_improved_answer": "As a HR Interview, a top-tier answer addresses: 1) Clear conceptual definition, 2) Technical mechanism/implementation, 3) Practical trade-offs or STAR methodology results.",
+          "follow_up_question": "When facing conflicting deadlines, what specific time-blocking or matrix framework (like Eisenhower) do you personally use?",
+          "action": "follow_up"
+        }
+      }
+    ]
+  }
+}
