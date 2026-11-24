@@ -87,8 +87,23 @@ class VercelPathNormalizer:
             scope["path"] = target_path
             scope["raw_path"] = target_path.encode("utf-8")
 
-        await self.asgi_app(scope, receive, send)
+        async def debug_send(message):
+    if message["type"] == "http.response.start":
+        headers = list(message.get("headers", []))
 
+        headers.append(
+            (b"x-debug-incoming-path", incoming_path.encode("utf-8"))
+        )
+
+        headers.append(
+            (b"x-debug-target-path", target_path.encode("utf-8"))
+        )
+
+        message = {**message, "headers": headers}
+
+    await send(message)
+
+await self.asgi_app(scope, receive, debug_send)
 
 app = VercelPathNormalizer(fastapi_app)
 
